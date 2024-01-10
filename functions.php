@@ -1,7 +1,14 @@
+<?php
+session_start();
+
+$_SESSION["email"] = $email;
+?>
+
 <!-- verifica se la mail inserita contiene i caratteri "@" e " . " -->
 <?php function verificaMail($email)
 {
     if (strpos($email, "@") !== false && (strpos($email, ".") !== false)) { //se i caretteri sono contenuti nella mail
+        header('Location: ./thankyou.php'); // redirect nella thankyou page
         return true; // restituisci vero
     } else {
         return false; // restituisci falso
