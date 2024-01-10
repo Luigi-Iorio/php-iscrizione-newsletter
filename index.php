@@ -1,5 +1,5 @@
 <?php
-$email = $_POST["email"] ?? "";
+$email = $_GET["email"] ?? "";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $email = $_POST["email"] ?? "";
     <!-- main -->
     <main>
         <div class="col-5 mx-auto">
-            <form action="index.php" method="POST" class="d-flex flex-column align-items-center my-5">
+            <form action="index.php" method="GET" class="d-flex flex-column align-items-center my-5">
                 <h6 class="pb-3">Iscriviti alla newsletter classe #110</h6>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="email" placeholder="Email address" name="email">
