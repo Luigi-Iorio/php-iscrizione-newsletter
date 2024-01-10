@@ -2,6 +2,8 @@
 $email = $_GET["email"] ?? "";
 
 include __DIR__ . "/functions.php";
+
+$verifica = verificaMail($email);
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ include __DIR__ . "/functions.php";
                 </div>
                 <button class="btn btn-primary">Iscriviti</button>
             </form>
-            <?php messaggioAlert($email) ?>
+            <?php messaggioAlert($verifica) ?>
         </div>
 
     </main>

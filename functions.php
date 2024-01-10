@@ -1,16 +1,19 @@
-<?php function messaggioAlert($email_inviata)
+<!-- verifica se la mail inserita contiene i caratteri "@" e " . " -->
+<?php function verificaMail($email)
+{
+    if (strpos($email, "@") !== false && (strpos($email, ".") !== false)) { //se i caretteri sono contenuti nella mail
+        return true; // restituisci vero
+    } else {
+        return false; // restituisci falso
+    };
+}
+?>
+
+<!-- stampa dinamica classi e messaggio per alert -->
+<!-- se verifica = true (alert-success)(Iscrizione confermata) / se verifica = false (alert-warning)(Inserisci una mail valida) -->
+<?php function messaggioAlert($verifica)
 { ?>
-    <?php if ($email_inviata === "") : ?>
-        <div class="alert alert-info text-center" role="alert">
-            Clicca il bottone iscriviti dopo aver inserito la mail
-        </div>
-    <?php elseif (strpos($email_inviata, "@") !== false && (strpos($email_inviata, ".") !== false)) : ?>
-        <div class="alert alert-success text-center" role="alert">
-            Iscrizione confermata!
-        </div>
-    <?php else : ?>
-        <div class="alert alert-danger text-center" role="alert">
-            Iscrizione non confermata! Inserisci un mail valida (con "@" e ".")
-        </div>
-    <?php endif; ?>
+    <div class="text-center alert <?php echo $verifica === true ? 'alert-success ' : 'alert-warning' ?>">
+        <?php echo $verifica === true ? 'Iscrizione confermata!' : 'Inserisci una mail valida (con "@" e " . ")' ?>
+    </div>
 <?php }; ?>
