@@ -1,5 +1,7 @@
 <?php
 $email = $_GET["email"] ?? "";
+
+include __DIR__ . "/functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -33,19 +35,7 @@ $email = $_GET["email"] ?? "";
                 </div>
                 <button class="btn btn-primary">Iscriviti</button>
             </form>
-            <?php if ($email === "") : ?>
-                <div class="alert alert-info text-center" role="alert">
-                    Clicca il bottone iscriviti dopo aver inserito la mail
-                </div>
-            <?php elseif (strpos($email, "@") !== false && (strpos($email, ".") !== false)) : ?>
-                <div class="alert alert-success text-center" role="alert">
-                    Iscrizione confermata!
-                </div>
-            <?php else : ?>
-                <div class="alert alert-danger text-center" role="alert">
-                    Iscrizione non confermata! Inserisci un mail valida (con "@" e ".")
-                </div>
-            <?php endif; ?>
+            <?php messaggioAlert($email) ?>
         </div>
 
     </main>
