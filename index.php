@@ -32,12 +32,15 @@ $verifica = verificaMail($email);
             <form action="index.php" method="GET" class="d-flex flex-column align-items-center my-5">
                 <h6 class="pb-3">Iscriviti alla newsletter classe #110</h6>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="email" placeholder="Email address" name="email">
+                    <input type="text" class="form-control" id="email" placeholder="Email address" name="email" value="<?php echo $email ?>">
                     <label for="email" class="text-dark">Email address</label>
                 </div>
                 <button class="btn btn-primary">Iscriviti</button>
             </form>
-            <?php messaggioAlert($verifica) ?>
+            <?php if (!empty($email)) : ?>
+                <?php messaggioAlert($verifica) ?>
+            <?php endif; ?>
+
         </div>
 
     </main>
